@@ -1,0 +1,208 @@
+week 6:-
+
+<!DOCTYPE html>
+<head>
+<title>WORD GUESS</title>
+<style>
+body{font-family:ariel;text-align:center;margin-top:60px;background:#6A752B;}
+input{padding:60px}
+button{padding:60px 8px}
+</style>
+</head>
+<body>
+<h2> WORD GUESSING GAME </h2>
+<p id="hint"></p>
+<input id="guess" placeholder="Enter word">
+<button onclick="check()">GUESS</button>
+<p id="msg"></p>
+
+<script>
+let words=[{w:"apple",h:"a fruit"},{w:"India",h:"a Country"},{w:"html",h:"Web language"}];
+let r=words[Math.floor(Math.random()*words.length)];
+
+document.getElementById("hint").innerText="Hint:"+r.h;
+
+function check(){
+let g=document.getElementById("guess").value.toLowerCase();
+document.getElementById("msg").innerText=
+g=r.w?"coorect!":"wrong!"}
+
+</script>
+</body>
+</html>
+
+
+
+week 7:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock Paper Scissors</title>
+
+<style>
+body{text-align: center;font-family: Arial;margin-top: 60px;background:#660000;}
+h2{color:white;}
+button{padding: 10px 15px;margin: 5px;font-size: 16px;}
+#result{color:yellow;}
+</style>
+</head>
+<body>
+<h2>Rock Paper Scissors</h2>
+<button onclick="play('rock')">ROCK</button>
+<button onclick="play('paper')">PAPER</button>
+<button onclick="play('scissor')">SCISSOR</button>
+<p id="result"></p>
+<script>
+let choices=["rock","paper","scissor"];
+function play(user){
+let comp=choices[Math.floor(Math.random()*3)];
+let res ="";
+
+if (comp==user){
+res="DRAW";
+}
+else if(
+(user=="rock" && comp=="scissor")||
+(user=="paper" && comp=="rock")||
+(user=="scissor" && comp=="paper")){
+res="you WIN!";
+}
+else{
+res="you LOSE!";
+}
+document.getElementById("result").innerText=
+"YOU: " + user + " | Computer: " + comp + " = " + res
+}
+</script>
+</body>
+</html>
+
+week 8:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temperature Converter</title>
+<style>
+body{text-align:center;font-family:Arial;margin-top:60px;background:#4A148C;}
+h2{color:white;}
+input,select{padding:8px}
+#result{color:pink;}
+</style>
+</head>
+<body>
+<h2>temparature convertor</h2>
+
+<input id="temp" type="number placeholder="Enter Value">
+<select id="type">
+<option value="c">C--F</option>
+<option value="f">F--C</option>
+</select>
+<button onclick=convert()>CONVERT</button>
+<p id="result"></p>
+
+<script>
+function convert(){
+let t=document.getElementById("temp").value;
+let type=document.getElementById("type").value;
+let r=type=="c"?(t*9/5)+32:(t-32)*5/9;
+document.getElementById("result").innerText="Result:"+r.toFixed(2);
+}
+</script>
+</body>
+</html>
+
+week 9:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Calculator</title>
+<style>
+body{text-align:center;font-family:Arial;margin-top:60px;background:#2E7D32;}
+input{padding:5px;margin:5px}
+</style>
+</head>
+<body>
+<h2>BMI Calculator</h2>
+Height(cm)<input type="number" id="Height"><br><br>
+Weight(kg)<input type="number" id="Weight"><br><br>
+<button onvclick="calculateBMI()">calculate BMI</button>
+<h3 id="result"></h3>   <script>
+    function calculateBMI() {
+      let h = document.getElementById("height").value / 100;
+      let w = document.getElementById("weight").value;
+ 
+      let bmi = (w / (h * h)).toFixed(2);
+ 
+      let status = "";
+      if (bmi < 18.5) status = "Underweight";
+      else if (bmi < 25) status = "Normal";
+      else if (bmi < 30) status = "Overweight";
+      else status = "Obese";
+ 
+      document.getElementById("result").innerHTML =
+        "Your BMI is " + bmi + " (" + status + ")";
+    }
+  </script>
+ 
+</body>
+</html>
+</body>
+</html>
+
+
+week 10:-
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Form Validation</title>
+<style>
+body { font-family: Arial; background:#f2f2f2; }
+.box { width:300px; margin:100px auto; padding:20px; background:#fff; }
+input, button { width:100%; padding:8px; margin:5px 0; }
+.error { color:red; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="box">
+<h3>Registration Form</h3>
+<form onsubmit="return validateForm()">
+<input type="text" id="name" placeholder="Name">
+<div id="nameError" class="error"></div>
+<input type="email" id="email" placeholder="Email">
+<div id="emailError" class="error"></div>
+<input type="password" id="password" placeholder="Password">
+<div id="passwordError" class="error"></div>
+<button type="submit">Submit</button>
+</form>
+</div>
+<script>
+function validateForm() {
+let valid = true;
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+document.getElementById("nameError").innerHTML = "";
+document.getElementById("emailError").innerHTML = "";
+document.getElementById("passwordError").innerHTML = "";
+if (name === "") {
+document.getElementById("nameError").innerHTML = "Name required";
+valid = false;
+}
+if (email === "") {
+document.getElementById("emailError").innerHTML = "Email required";
+valid = false;
+}
+if (password.length < 6) {
+document.getElementById("passwordError").innerHTML = "Min 6 characters";
+valid = false;
+}
+if (valid) alert("Form submitted successfully!");
+return valid;
+}
+</script>
+</body>
+</html>
